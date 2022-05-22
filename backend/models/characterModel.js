@@ -11,6 +11,10 @@ const characterSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add a text value'],
     },
+    eyeColour: {
+      type: String,
+      required: [true, 'Please select an eye colour']
+    }
   },
   {
     timestamps: true,

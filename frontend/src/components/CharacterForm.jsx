@@ -13,19 +13,28 @@ function CharacterForm() {
     dispatch(createCharacter({ text }))
     setText('')
   }
-
+  const eyeColours = ["Black","Turquoise","Brown","Green","Red"]
   return (
     <section className='form'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
           <label htmlFor='text'>Character</label>
-          <input
+          Name: <input
             type='text'
             name='text'
             id='text'
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          Eye Colour: 
+          <select>
+            {eyeColours.map(option => (
+              <option key={option} value={option} >
+                {option} Colour
+              </option>
+            ))}
+          </select>
+          
         </div>
         <div className='form-group'>
           <button className='btn btn-block' type='submit'>

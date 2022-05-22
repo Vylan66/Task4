@@ -7,7 +7,8 @@ function CharacterItem({ character }) {
   return (
     <div className='character'>
       <div>{new Date(character.createdAt).toLocaleString('en-US')}</div>
-      <h2>{character.text}</h2>
+      <h2>Name: {character.text}</h2>
+      <h2>Eye Colour: {character.eyeColour}</h2>
       <button onClick={() => dispatch(deleteCharacter(character._id))} className='close'>
         X
       </button>

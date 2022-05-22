@@ -20,10 +20,15 @@ const setCharacter = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Please add a text field')
   }
-
+  if (!req.body.eyeColour) {
+    res.status(400)
+    throw new Error('Please select an eye colour')
+  }
+  console.log("req.body.eyeColour: " + req.body.eyeColour)
   const character = await Character.create({
     text: req.body.text,
     user: req.user.id,
+    eyeColour: req.body.eyeColour
   })
 
   res.status(200).json(character)
