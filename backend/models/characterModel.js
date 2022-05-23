@@ -17,11 +17,15 @@ const characterSchema = mongoose.Schema(
     },
     hairColour: {
       type: String,
-      required: [true, 'Please select an hair colour']
+      required: [true, 'Please select a hair colour']
     },
     shirtColour: {
       type: String,
-      required: [true, 'Please select an shirt colour']
+      required: [true, 'Please select a shirt colour']
+    },
+    pantsColour: {
+      type: String,
+      required: [true, 'Please select a pants colour']
     }
   },
   {
