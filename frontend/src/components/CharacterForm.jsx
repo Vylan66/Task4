@@ -6,18 +6,20 @@ function CharacterForm() {
   const [text, setText] = useState('')
   const [eyeColour, setEyeColour] = useState('')
   const [hairColour, setHairColour] = useState('')
+  const [shirtColour, setShirtColour] = useState('')
 
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createCharacter({ text, eyeColour, hairColour }))
+    dispatch(createCharacter({ text, eyeColour, hairColour, shirtColour }))
     setText('')
     setEyeColour('')
   }
   const eyeColours = ["Select", "Black","Turquoise","Brown","Green","Red"]
   const hairColours = ["Select", "Black", "Brown", "Blond", "Grey", "Red"]
+  const shirtColours = ["Select", "Black", "White", "Checkered", "Practical", "Cool"]
   return (
     <section className='form'>
       <form onSubmit={onSubmit}>
@@ -41,6 +43,14 @@ function CharacterForm() {
           Hair Colour: 
           <select  onChange={(e) => {setHairColour(e.target.value)}}>
             {hairColours.map(option => (
+              <option key={option} value={option === "Select" ? "" : option} >
+                {option} Colour
+              </option>
+            ))}
+          </select>
+          Shirt Colour: 
+          <select  onChange={(e) => {setShirtColour(e.target.value)}}>
+            {shirtColours.map(option => (
               <option key={option} value={option === "Select" ? "" : option} >
                 {option} Colour
               </option>

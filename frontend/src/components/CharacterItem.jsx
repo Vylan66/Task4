@@ -10,6 +10,7 @@ function CharacterItem({ character }) {
       <h2>Name: {character.text}</h2>
       <h2>Eye Colour: {character.eyeColour}</h2>
       <h2>Hair Colour: {character.hairColour}</h2>
+      <h2>Shirt Colour: {character.shirtColour}</h2>
       <button onClick={() => dispatch(deleteCharacter(character._id))} className='close'>
         X
       </button>
