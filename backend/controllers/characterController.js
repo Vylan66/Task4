@@ -24,16 +24,15 @@ const setCharacter = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Please select an eye colour')
   }
-  // if (!req.body.hairColour) {
-  //   res.status(400)
-  //   throw new Error('Please select an hair colour')
-  // }
-  console.log("req.body.eyeColour: " + req.body.eyeColour)
+  if (!req.body.hairColour) {
+    res.status(400)
+    throw new Error('Please select an hair colour')
+  }
   const character = await Character.create({
     text: req.body.text,
     user: req.user.id,
     eyeColour: req.body.eyeColour,
-    // hairColour: req.body.hairColour
+    hairColour: req.body.hairColour
   })
 
   res.status(200).json(character)

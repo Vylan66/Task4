@@ -5,17 +5,19 @@ import { createCharacter } from '../features/characters/characterSlice'
 function CharacterForm() {
   const [text, setText] = useState('')
   const [eyeColour, setEyeColour] = useState('')
+  const [hairColour, setHairColour] = useState('')
 
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createCharacter({ text, eyeColour }))
+    dispatch(createCharacter({ text, eyeColour, hairColour }))
     setText('')
     setEyeColour('')
   }
   const eyeColours = ["Select", "Black","Turquoise","Brown","Green","Red"]
+  const hairColours = ["Select", "Black", "Brown", "Blond", "Grey", "Red"]
   return (
     <section className='form'>
       <form onSubmit={onSubmit}>
@@ -36,6 +38,15 @@ function CharacterForm() {
               </option>
             ))}
           </select>
+          Hair Colour: 
+          <select  onChange={(e) => {setHairColour(e.target.value)}}>
+            {hairColours.map(option => (
+              <option key={option} value={option === "Select" ? "" : option} >
+                {option} Colour
+              </option>
+            ))}
+          </select>
+          
           
         </div>
         <div className='form-group'>
