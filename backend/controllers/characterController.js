@@ -11,7 +11,7 @@ const getCharacters = asyncHandler(async (req, res) => {
 
   res.status(200).json(characters)
 })
-
+ 
 // @desc    Set characters
 // @route   POST /api/characters
 // @access  Private
@@ -24,11 +24,16 @@ const setCharacter = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Please select an eye colour')
   }
+  // if (!req.body.hairColour) {
+  //   res.status(400)
+  //   throw new Error('Please select an hair colour')
+  // }
   console.log("req.body.eyeColour: " + req.body.eyeColour)
   const character = await Character.create({
     text: req.body.text,
     user: req.user.id,
-    eyeColour: req.body.eyeColour
+    eyeColour: req.body.eyeColour,
+    // hairColour: req.body.hairColour
   })
 
   res.status(200).json(character)

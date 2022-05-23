@@ -15,6 +15,10 @@ const characterSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please select an eye colour']
     }
+    // hairColour: {
+    //   type: String,
+    //   required: [true, 'Please select an hair colour']
+    // }
   },
   {
     timestamps: true,

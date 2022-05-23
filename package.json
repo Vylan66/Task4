@@ -1,7 +1,7 @@
 {
-  "name": "mern-tutorial",
+  "name": "dylan-year11-task4",
   "version": "1.0.0",
-  "description": "Goalsetter app for youtube tutorial",
+  "description": "Year 11 Task 4",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",

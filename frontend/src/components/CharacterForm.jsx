@@ -4,16 +4,18 @@ import { createCharacter } from '../features/characters/characterSlice'
 
 function CharacterForm() {
   const [text, setText] = useState('')
+  const [eyeColour, setEyeColour] = useState('')
 
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createCharacter({ text }))
+    dispatch(createCharacter({ text, eyeColour }))
     setText('')
+    setEyeColour('')
   }
-  const eyeColours = ["Black","Turquoise","Brown","Green","Red"]
+  const eyeColours = ["Select", "Black","Turquoise","Brown","Green","Red"]
   return (
     <section className='form'>
       <form onSubmit={onSubmit}>
@@ -24,12 +26,12 @@ function CharacterForm() {
             name='text'
             id='text'
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {setText(e.target.value)}}
           />
           Eye Colour: 
-          <select>
+          <select  onChange={(e) => {setEyeColour(e.target.value)}}>
             {eyeColours.map(option => (
-              <option key={option} value={option} >
+              <option key={option} value={option === "Select" ? "" : option} >
                 {option} Colour
               </option>
             ))}
