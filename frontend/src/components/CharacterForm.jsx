@@ -10,13 +10,6 @@ function CharacterForm() {
   const [shirtColour, setShirtColour] = useState('')
   const [pantsColour, setPantsColour] = useState('')
 
-  const onChange = (e) => {
-    setEyeColour((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
-  }
-
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
@@ -44,14 +37,15 @@ function CharacterForm() {
   }
   const eyeColours = ["Black","Turquoise","Brown","Green","Red"]
   const hairColours = ["Black", "Brown", "Blond", "Grey", "Red"]
-  const shirtColours = ["Black", "White", "Checkered", "Practical", "Cool"]
-  const pantsColours = ["Black", "White", "Camo", "Practical", "Shorts"]
+  const shirtColours = ["Black", "White", "Camo", "Blue", "Checkered"]
+  const pantsColours = ["Black", "White", "Camo", "Grey", "Rainbow"]
   return (
     <section className='form'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
-          <label htmlFor='text'>Create Your Character</label>
-          Name: <input
+          <div class="property-title">Create Your Character</div>
+          <label class="property-label" htmlFor='text'>Name:</label>
+          <input
             type='text'
             name='text'
             id='text'
@@ -59,7 +53,7 @@ function CharacterForm() {
             placeholder='Enter character name'
             onChange={(e) => {setText(e.target.value)}}
           />
-          Eye Colour: 
+          <label class="property-label">Eye Colour:</label>
           <select  onChange={(e) => {setEyeColour(e.target.value)}}>
             <option value=''> --Please select an eye colour-- </option>
             {eyeColours.map(option => (
@@ -68,8 +62,7 @@ function CharacterForm() {
               </option>
             ))}
           </select>
-          
-          Hair Colour: 
+          <label class="property-label">Hair Colour:</label>
           <select  onChange={(e) => {setHairColour(e.target.value)}}>
             <option value=''> --Please select a hair colour-- </option>
             {hairColours.map(option => (
@@ -78,7 +71,7 @@ function CharacterForm() {
               </option>
             ))}
           </select>
-          Shirt Colour: 
+          <label class="property-label">Shirt Colour:</label>
           <select  onChange={(e) => {setShirtColour(e.target.value)}}>
             <option value=''> --Please select a shirt colour-- </option>
             {shirtColours.map(option => (
@@ -87,7 +80,7 @@ function CharacterForm() {
               </option>
             ))}
           </select>
-          Pants Colour: 
+          <label class="property-label">Pants Colour:</label>
           <select  onChange={(e) => {setPantsColour(e.target.value)}}>
             <option value=''> --Please select a pants colour-- </option>
             {pantsColours.map(option => (
