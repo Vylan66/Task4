@@ -45,6 +45,7 @@ function Dashboard() {
       <CharacterForm />
 
       <section className='content'>
+        <h3>Character list:</h3>
         {characters.length > 0 ? (
           <div className='characters'>
             {characters.map((character) => (
@@ -52,7 +53,7 @@ function Dashboard() {
             ))}
           </div>
         ) : (
-          <h3>You have not set any characters</h3>
+          <h3>You have not made any characters</h3>
         )}
       </section>
     </>

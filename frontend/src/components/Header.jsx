@@ -17,7 +17,10 @@ function Header() {
   return (
     <header className='header'>
       <div className='logo'>
-        <Link to='/'>GoalSetter</Link>
+        <Link to='/'>Characters</Link>
+      </div>
+      <div className='logo'>
+        <Link to='/info'>Insect survival</Link>
       </div>
       <ul>
         {user ? (
@@ -26,6 +29,7 @@ function Header() {
               <FaSignOutAlt /> Logout
             </button>
           </li>
+          
         ) : (
           <>
             <li>
